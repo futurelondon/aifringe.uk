@@ -3,7 +3,7 @@ import ical from "node-ical";
 import { format } from "date-fns";
 import { aiFringeIcalURL } from "./const";
 
-export async function getData() {
+async function getData() {
   const cal = await ical.async.fromURL(aiFringeIcalURL);
   const _events = Object.values(cal);
 
