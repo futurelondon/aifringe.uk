@@ -83,16 +83,19 @@ export default async function Home() {
         </noscript>
       </Head>
       <div className="w-full sm:border-t-8 border-off_green">
-        <header className="flex flex-col items-center justify-between w-full max-w-4xl pb-6 mx-auto mb-0 bg-finn sm:mb-8 sm:pb-0 sm:flex-row sm:bg-transparent">
+        <header className="flex flex-col items-center justify-between w-full max-w-4xl pb-6 mx-auto mb-0 bg-off_green sm:mb-8 sm:pb-0 sm:flex-row sm:bg-transparent">
           <h1 className="relative mx-auto mt-12 text-2xl font-normal font-header sm:mx-0">
-            <span className="relative z-10 px-2 py-1 text-white">
+            <span className="relative z-10 px-2 py-1 sm:text-white text-off_green">
               AI Fringe
             </span>
-            <span className="absolute inset-0 z-0 transform bg-white sm:bg-off_green -rotate-6"></span>
+            <span className="absolute inset-0 z-0 transform bg-white text-off_green sm:bg-off_green -rotate-6"></span>
           </h1>
 
           <div className="items-center hidden space-x-3 sm:flex">
-            <a href="#about" className="px-3 py-3 pt-12 hover:bg-off_green">
+            <a
+              href="#about"
+              className="px-3 py-3 pt-12 hover:bg-off_green hover:text-white"
+            >
               About
             </a>
           </div>
@@ -102,7 +105,7 @@ export default async function Home() {
               <a
                 href="https://chat.whatsapp.com/LuWcWtD04YM3DJTULmn2Fs"
                 target="_blank"
-                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-white font-header"
+                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-off_green font-header"
               >
                 Join
               </a>
@@ -112,7 +115,7 @@ export default async function Home() {
               <a
                 href="https://lu.ma/ldn"
                 target="_blank"
-                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-white font-header"
+                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-off_green font-header"
               >
                 Attend
               </a>
@@ -122,7 +125,7 @@ export default async function Home() {
               <a
                 href="https://chat.whatsapp.com/CZGKvlhEWgcE2gbL0mJd5o"
                 target="_blank"
-                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-white font-header"
+                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-off_green font-header"
               >
                 Submit
               </a>
@@ -179,6 +182,16 @@ export default async function Home() {
           </a>
         </h4>
       </div>
+      <div
+        style={{
+          backgroundImage: "url(/social-banner-lg.png)",
+          minHeight: "400px",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="w-full"
+      ></div>
 
       {events.map((event) => {
         return (
@@ -201,7 +214,7 @@ export default async function Home() {
             </div>
 
             <div className="flex flex-col sm:hidden">
-              <div className="flex items-center justify-between space-x-2 text-gray-700">
+              <div className="flex items-center justify-between space-x-2">
                 <h3 className="font-medium">{event.summary}</h3>
                 <p className="text-sm">{format(event.start, "LLLL do, y")}</p>
               </div>
@@ -228,7 +241,7 @@ export default async function Home() {
                 id="about"
                 className="relative mx-auto mb-4 font-medium uppercase w-fit sm:w-full sm:mx-0 sm:mb-0"
               >
-                <span className="relative z-10 px-2 py-1 font-medium sm:p-0">
+                <span className="relative z-10 px-2 py-1 font-medium sm:p-0 text-off_green sm:text-white">
                   About
                 </span>
                 <span className="absolute inset-0 z-0 transform bg-white sm:hidden rotate-6"></span>
