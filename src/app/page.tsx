@@ -209,12 +209,7 @@ export default async function Home() {
 
             <div className="hidden max-w-6xl mx-auto 6xl sm:grid sm:grid-cols-12">
               <p className="col-span-12 text-sm hover:text-white sm:text-lg">
-                <span className="inline py-2">
-                  Why has progress in urban transport stalled? How can we get
-                  more people, to more places, for less? Learn from the experts
-                  who are literally making flying cars – and much else –
-                  possible.
-                </span>
+                <span className="inline py-2">{event.description}</span>
               </p>
             </div>
           </a>
@@ -254,8 +249,8 @@ export default async function Home() {
                 of AI.
               </p>
               <p>
-                We believe AI going to be a powerful force - let's make sure
-                it's a force for good.
+                We believe AI going to be a powerful force - let&apos;s make sure
+                it&apos;s a force for good.
               </p>
             </article>
           </div>
