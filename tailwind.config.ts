@@ -1,20 +1,86 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        delft_blue: {
+          DEFAULT: "#373168",
+          100: "#0b0a15",
+          200: "#16142a",
+          300: "#211d3e",
+          400: "#2c2753",
+          500: "#373168",
+          600: "#514899",
+          700: "#766dba",
+          800: "#a49ed1",
+          900: "#d1cee8",
+        },
+        brilliant_rose: {
+          DEFAULT: "#E452AC",
+          100: "#360824",
+          200: "#6c1149",
+          300: "#a1196d",
+          400: "#d72292",
+          500: "#e452ac",
+          600: "#ea75bd",
+          700: "#ef98cd",
+          800: "#f4bade",
+          900: "#faddee",
+        },
+        finn: {
+          DEFAULT: "#552863",
+          100: "#110814",
+          200: "#221027",
+          300: "#33183b",
+          400: "#43204e",
+          500: "#552863",
+          600: "#823e97",
+          700: "#a860be",
+          800: "#c595d4",
+          900: "#e2cae9",
+        },
+        eminence: {
+          DEFAULT: "#583271",
+          100: "#120a17",
+          200: "#23142d",
+          300: "#351e44",
+          400: "#46285b",
+          500: "#583271",
+          600: "#7d47a2",
+          700: "#9f6ec0",
+          800: "#bf9fd5",
+          900: "#dfcfea",
+        },
+        russian_violet: {
+          DEFAULT: "#3A1B45",
+          100: "#0c050e",
+          200: "#170b1c",
+          300: "#23102a",
+          400: "#2f1638",
+          500: "#3a1b45",
+          600: "#6c3281",
+          700: "#9d4dba",
+          800: "#bd88d1",
+          900: "#dec4e8",
+        },
+        off_green: {
+          DEFAULT: "#207D0D",
+          500: "#074626",
+          600: "#010E08",
+        },
+      },
+      fontFamily: {
+        header: ["Staatliches"],
+        title: ["Pixelify Sans"],
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

@@ -1,113 +1,266 @@
-import Image from 'next/image'
+import Head from "next/head";
+import ical from "node-ical";
+import { format } from "date-fns";
+import { aiFringeIcalURL } from "./const";
 
-export default function Home() {
+export async function getData() {
+  const cal = await ical.async.fromURL(aiFringeIcalURL);
+  const _events = Object.values(cal);
+
+  const today = new Date();
+  today.setHours(0);
+  today.setMinutes(0);
+  today.setSeconds(0);
+
+  const events = _events
+    .filter((event: any) => {
+      return !!event.summary && event.start.valueOf() >= today.valueOf(); // && event.summary.toLowerCase().includes("fringe");
+    })
+    .map((event: any) => {
+      const [firstLine, ...descLines] = event.description.split("\n");
+      const description = descLines.join("\n");
+      const eventUrl = "http" + firstLine.split("http")[1];
+      event.description = description.trim();
+      event.url = eventUrl;
+
+      return event;
+    });
+
+  return { events };
+}
+
+export default async function Home() {
+  const { events } = await getData();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <title>AI Fringe</title>
+      <meta name="title" content="AI Fringe" />
+      <meta name="description" content="UK AI Summit Fringe." />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://aifringe.uk/" />
+      <meta property="og:title" content="AI Fringe" />
+      <meta property="og:description" content="UK AI Summit Fringe." />
+      <meta property="og:image" content="/social-banner.png" />
+
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://aifringe.uk/" />
+      <meta property="twitter:title" content="AI Fringe" />
+      <meta property="twitter:description" content="UK AI Summit Fringe." />
+      <meta property="twitter:image" content="/social-banner.png" />
+
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/favicon/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/favicon/site.webmanifest" />
+      <Head>
+        <script
+          async
+          defer
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+        ></script>
+        <noscript>
+          <img
+            src="https://queue.simpleanalyticscdn.com/noscript.gif"
+            alt=""
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </noscript>
+      </Head>
+      <div className="w-full sm:border-t-8 border-off_green">
+        <header className="flex flex-col items-center justify-between w-full max-w-4xl pb-6 mx-auto mb-0 bg-finn sm:mb-8 sm:pb-0 sm:flex-row sm:bg-transparent">
+          <h1 className="relative mx-auto mt-12 text-2xl font-normal font-header sm:mx-0">
+            <span className="relative z-10 px-2 py-1 text-white">
+              AI Fringe
+            </span>
+            <span className="absolute inset-0 z-0 transform bg-white sm:bg-off_green -rotate-6"></span>
+          </h1>
+
+          <div className="items-center hidden space-x-3 sm:flex">
+            <a href="#about" className="px-3 py-3 pt-12 hover:bg-off_green">
+              About
+            </a>
+          </div>
+
+          <div className="flex flex-row w-full px-4 mt-8 space-x-2 sm:hidden">
+            <p className="w-full">
+              <a
+                href="https://chat.whatsapp.com/LuWcWtD04YM3DJTULmn2Fs"
+                target="_blank"
+                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-white font-header"
+              >
+                Join
+              </a>
+            </p>
+
+            <p className="w-full">
+              <a
+                href="https://lu.ma/ldn"
+                target="_blank"
+                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-white font-header"
+              >
+                Attend
+              </a>
+            </p>
+
+            <p className="w-full">
+              <a
+                href="https://chat.whatsapp.com/CZGKvlhEWgcE2gbL0mJd5o"
+                target="_blank"
+                className="block w-full p-2 text-sm font-medium text-center bg-white rounded-md text-white font-header"
+              >
+                Submit
+              </a>
+            </p>
+          </div>
+        </header>
+
+        <div className="hidden max-w-6xl grid-cols-12 px-4 pt-0 mx-auto mt-0 text-left sm:grid sm:mt-20 sm:pt-0">
+          <main className="col-span-full">
+            <h3 className="flex flex-col mb-6 text-off_green-500 sm:text-2xl sm:flex-row sm:mb-0">
+              <span className="mr-2 text-off_green">Theme</span>
+              <span className="font-medium">AI Progress & Safety</span>
+            </h3>
+            <h2 className="hidden mt-10 text-5xl font-medium text-left sm:block sm:text-9xl">
+              <span className="inline">
+                Fringe: <span className="text-rose-950">U</span>
+                <span className="text-blue-950">K</span>&nbsp;
+                <span className="text-off_green-500">A</span>
+                <span className="text-off_green-500">I</span> Safety Summit.
+              </span>
+            </h2>
+          </main>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="flex-col hidden w-full mt-20 text-xl sm:flex sm:flex-row">
+        <h4 className="w-full">
+          <a
+            href="https://chat.whatsapp.com/LuWcWtD04YM3DJTULmn2Fs"
+            target="_blank"
+            className="block w-full p-10 text-center hover:bg-off_green hover:text-white"
+          >
+            Join the community.
+          </a>
+        </h4>
+
+        <h4 className="w-full">
+          <a
+            href="https://lu.ma/ldn"
+            target="_blank"
+            className="block w-full p-10 text-center hover:bg-off_green hover:text-white"
+          >
+            Attend the events.
+          </a>
+        </h4>
+
+        <h4 className="w-full">
+          <a
+            href="https://chat.whatsapp.com/CZGKvlhEWgcE2gbL0mJd5o"
+            target="_blank"
+            className="block w-full p-10 text-center hover:bg-off_green hover:text-white"
+          >
+            Submit an event.
+          </a>
+        </h4>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      {events.map((event) => {
+        return (
+          <a
+            key={event.uid}
+            href={event.url}
+            target="_blank"
+            className="block w-full py-6 px-4 sm:mt-10 hover:bg-off_green text-off_green-500 hover:text-white sm:py-8"
+          >
+            <div className="hidden max-w-6xl mx-auto 6xl sm:grid sm:grid-cols-12">
+              <article className="col-span-8">
+                <h3 className="hover:text-white text-2xl font-medium">
+                  {event.summary}
+                </h3>
+              </article>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+              <aside className="col-span-4 text-right">
+                <p className="text-sm">{format(event.start, "LLLL do, y")}</p>
+              </aside>
+            </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+            <div className="flex flex-col sm:hidden">
+              <div className="flex items-center justify-between space-x-2 text-gray-700">
+                <h3 className="font-medium">{event.summary}</h3>
+                <p className="text-sm">{format(event.start, "LLLL do, y")}</p>
+              </div>
+            </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+            <div className="hidden max-w-6xl mx-auto 6xl sm:grid sm:grid-cols-12">
+              <p className="col-span-12 text-sm hover:text-white sm:text-lg">
+                <span className="inline py-2">
+                  Why has progress in urban transport stalled? How can we get
+                  more people, to more places, for less? Learn from the experts
+                  who are literally making flying cars – and much else –
+                  possible.
+                </span>
+              </p>
+            </div>
+          </a>
+        );
+      })}
+
+      <div className="relative w-full py-20 mt-10 overflow-hidden h-60 text-white">
+        <div
+          className="absolute inset-0 z-0 transform bg-off_green -rotate-3 h-96"
+          style={{ width: "110%" }}
+        ></div>
+        <div className="absolute top-0 w-full py-10 sm:py-20">
+          <div className="w-full max-w-6xl grid-cols-12 mx-auto sm:grid px-4">
+            <div className="col-span-2">
+              <h6
+                id="about"
+                className="relative mx-auto mb-4 font-medium uppercase w-fit sm:w-full sm:mx-0 sm:mb-0"
+              >
+                <span className="relative z-10 px-2 py-1 font-medium sm:p-0">
+                  About
+                </span>
+                <span className="absolute inset-0 z-0 transform bg-white sm:hidden rotate-6"></span>
+              </h6>
+            </div>
+
+            <article className="col-span-6 mt-6 space-y-6 text-sm sm:p-0 sm:mt-0 sm:text-base">
+              <p>
+                AI Fringe is organised by{" "}
+                <a href="https://futurelondon.org" target="_blank">
+                  Future London
+                </a>{" "}
+                and{" "}
+                <a href="https://ailondon.org" target="_blank">
+                  AI London
+                </a>{" "}
+                to bring together the global AI community to discuss the future
+                of AI.
+              </p>
+              <p>
+                We believe AI going to be a powerful force - let's make sure
+                it's a force for good.
+              </p>
+            </article>
+          </div>
+        </div>
       </div>
     </main>
-  )
+  );
 }
