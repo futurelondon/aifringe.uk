@@ -34,7 +34,7 @@ export default async function Home() {
 
   return (
     <main>
-      <title>AI Safety Summit Fringe</title>
+      <title>AI Fringe</title>
       <meta name="title" content="AI Safety Summit Fringe" />
       <meta name="description" content="AI Safety Summit Fringe." />
 
@@ -47,7 +47,7 @@ export default async function Home() {
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://aifringe.uk/" />
       <meta property="twitter:title" content="AI Safety Summit Fringe" />
-      <meta property="twitter:description" content="UK AI Summit Fringe." />
+      <meta property="twitter:description" content="AI Safety Summit Fringe" />
       <meta property="twitter:image" content="/social-banner.png" />
 
       <link
@@ -86,7 +86,7 @@ export default async function Home() {
         <header className="flex flex-col items-center justify-between w-full max-w-4xl pb-6 mx-auto mb-0 bg-off_green sm:mb-8 sm:pb-0 sm:flex-row sm:bg-transparent">
           <h1 className="relative mx-auto mt-12 text-2xl font-normal font-header sm:mx-0">
             <span className="relative z-10 px-2 py-1 sm:text-white text-off_green">
-              AI Safety Summit Fringe
+              AI Fringe
             </span>
             <span className="absolute inset-0 z-0 transform bg-white text-off_green sm:bg-off_green -rotate-6"></span>
           </h1>
@@ -136,15 +136,15 @@ export default async function Home() {
         <div className="hidden max-w-6xl grid-cols-12 px-4 pt-0 mx-auto mt-0 text-left sm:grid sm:mt-20 sm:pt-0">
           <main className="col-span-full">
             <h3 className="flex flex-col mb-6 text-off_green-500 sm:text-2xl sm:flex-row sm:mb-0">
-              <span className="mr-2 text-off_green">Theme</span>
-              <span className="font-medium">AI Progress & Safety</span>
+              <span className="mr-2 text-off_green">Unofficial</span>
+              <span className="font-medium">Discussions, Drinks and Hacks</span>
             </h3>
             <h2 className="hidden mt-10 text-5xl font-medium text-left sm:block sm:text-9xl">
               <span className="inline">
-                Fringe: <span className="text-rose-950">U</span>
-                <span className="text-blue-950">K</span>&nbsp;
-                <span className="text-off_green-500">A</span>
-                <span className="text-off_green-500">I</span> Safety Summit.
+                <span className="text-rose-950">A</span>
+                <span className="text-blue-950">I</span>&nbsp;
+                <span className="text-off_green-500">Safety Summit</span>&nbsp;
+                <span className="text-off_green-500">Fringe</span>
               </span>
             </h2>
           </main>
@@ -197,6 +197,7 @@ export default async function Home() {
         return (
           <a
             key={event.uid}
+            // TODO the URL for an external event is to the org, not event
             href={event.url}
             target="_blank"
             className="block w-full py-6 px-4 sm:mt-10 hover:bg-off_green text-off_green-500 hover:text-white sm:py-8"
@@ -250,7 +251,7 @@ export default async function Home() {
 
             <article className="col-span-6 mt-6 space-y-6 text-sm sm:p-0 sm:mt-0 sm:text-base">
               <p>
-                AI Safety Summit Fringe is organised by{" "}
+                The AI Safety Summit Fringe is organised by{" "}
                 <a href="https://futurelondon.org" target="_blank">
                   Future London
                 </a>{" "}
