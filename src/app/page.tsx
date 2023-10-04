@@ -34,19 +34,19 @@ export default async function Home() {
 
   return (
     <main>
-      <title>AI Fringe</title>
-      <meta name="title" content="AI Fringe" />
-      <meta name="description" content="UK AI Summit Fringe." />
+      <title>AI Safety Summit Fringe</title>
+      <meta name="title" content="AI Safety Summit Fringe" />
+      <meta name="description" content="AI Safety Summit Fringe." />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://aifringe.uk/" />
-      <meta property="og:title" content="AI Fringe" />
+      <meta property="og:title" content="AI Safety Summit Fringe" />
       <meta property="og:description" content="UK AI Summit Fringe." />
       <meta property="og:image" content="/social-banner.png" />
 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://aifringe.uk/" />
-      <meta property="twitter:title" content="AI Fringe" />
+      <meta property="twitter:title" content="AI Safety Summit Fringe" />
       <meta property="twitter:description" content="UK AI Summit Fringe." />
       <meta property="twitter:image" content="/social-banner.png" />
 
@@ -86,7 +86,7 @@ export default async function Home() {
         <header className="flex flex-col items-center justify-between w-full max-w-4xl pb-6 mx-auto mb-0 bg-off_green sm:mb-8 sm:pb-0 sm:flex-row sm:bg-transparent">
           <h1 className="relative mx-auto mt-12 text-2xl font-normal font-header sm:mx-0">
             <span className="relative z-10 px-2 py-1 sm:text-white text-off_green">
-              AI Fringe
+              AI Safety Summit Fringe
             </span>
             <span className="absolute inset-0 z-0 transform bg-white text-off_green sm:bg-off_green -rotate-6"></span>
           </h1>
@@ -250,7 +250,7 @@ export default async function Home() {
 
             <article className="col-span-6 mt-6 space-y-6 text-sm sm:p-0 sm:mt-0 sm:text-base">
               <p>
-                AI Fringe is organised by{" "}
+                AI Safety Summit Fringe is organised by{" "}
                 <a href="https://futurelondon.org" target="_blank">
                   Future London
                 </a>{" "}
