@@ -252,20 +252,14 @@ export default async function Home() {
             <article className="col-span-6 mt-6 space-y-6 text-sm sm:p-0 sm:mt-0 sm:text-base">
               <p>
                 The AI Safety Summit Fringe is organised by{" "}
-                <a href="https://futurelondon.org" target="_blank">
+                <a href="https://futurelondon.org" target="_blank" className="underline">
                   Future London
                 </a>{" "}
                 and{" "}
-                <a href="https://ailondon.org" target="_blank">
+                <a href="https://ailondon.org" target="_blank" className="underline">
                   AI London
                 </a>{" "}
-                to bring together the global AI community to discuss the future
-                of AI.
-              </p>
-              <p></p>
-              <p>
-                We believe AI going to be a powerful force - let&apos;s make
-                sure it&apos;s a force for good.
+                We're running events to coincide with, but are not affiliated with the <a href="https://www.gov.uk/government/publications/ai-safety-summit-introduction" className="underline">UK's AI Safety Summit</a>.
               </p>
             </article>
           </div>
