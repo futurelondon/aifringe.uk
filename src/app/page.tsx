@@ -259,7 +259,7 @@ export default async function Home() {
                 <a href="https://ailondon.org" target="_blank" className="underline">
                   AI London
                 </a>{" "}
-                We're running events to coincide with, but are not affiliated with the <a href="https://www.gov.uk/government/publications/ai-safety-summit-introduction" className="underline">UK's AI Safety Summit</a>.
+                We&apos;re running events to coincide with, but are not affiliated with the <a href="https://www.gov.uk/government/publications/ai-safety-summit-introduction" className="underline">UK&apos;s AI Safety Summit</a>.
               </p>
             </article>
           </div>
