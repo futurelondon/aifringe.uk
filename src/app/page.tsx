@@ -136,8 +136,8 @@ export default async function Home() {
         <div className="hidden max-w-6xl grid-cols-12 px-4 pt-0 mx-auto mt-0 text-left sm:grid sm:mt-20 sm:pt-0">
           <main className="col-span-full">
             <h3 className="flex flex-col mb-6 text-off_green-500 sm:text-2xl sm:flex-row sm:mb-0">
-              <span className="mr-2 text-off_green">Unofficial</span>
-              <span className="font-medium">Discussions, Drinks and Hacks</span>
+              <span className="font-medium">1 - 5 November</span>&nbsp;
+              <span className="mr-2 text-off_green">2023</span>
             </h3>
             <h2 className="hidden mt-10 text-5xl font-medium text-left sm:block sm:text-9xl">
               <span className="inline">
@@ -262,6 +262,7 @@ export default async function Home() {
                 to bring together the global AI community to discuss the future
                 of AI.
               </p>
+              <p></p>
               <p>
                 We believe AI going to be a powerful force - let&apos;s make
                 sure it&apos;s a force for good.
