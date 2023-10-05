@@ -14,14 +14,19 @@ async function getData() {
 
   const events = _events
     .filter((event: any) => {
-      return !!event.summary && event.start.valueOf() >= today.valueOf(); // && event.summary.toLowerCase().includes("fringe");
+      return (
+        !!event.summary &&
+        event.start.valueOf() >= today.valueOf() &&
+        event.summary.toLowerCase().includes("fringe")
+      );
     })
     .map((event: any) => {
       const [firstLine, ...descLines] = event.description.split("\n");
       const description = descLines.join("\n");
       const eventUrl = "http" + firstLine.split("http")[1];
+      event.summary = event.summary.replace(/^Fringe:/, "").trim();
       event.description = description.trim();
-      event.url = eventUrl;
+      event.url = event.location.startsWith("http") ? event.location : eventUrl;
 
       return event;
     });
@@ -31,6 +36,8 @@ async function getData() {
 
 export default async function Home() {
   const { events } = await getData();
+
+  console.log(events);
 
   return (
     <main>
