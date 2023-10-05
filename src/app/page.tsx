@@ -40,19 +40,19 @@ export default async function Home() {
   return (
     <main>
       <title>AI Fringe</title>
-      <meta name="title" content="AI Fringe" />
-      <meta name="description" content="UK AI Summit Fringe." />
+      <meta name="title" content="AI Safety Summit Fringe" />
+      <meta name="description" content="AI Safety Summit Fringe." />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://aifringe.uk/" />
-      <meta property="og:title" content="AI Fringe" />
+      <meta property="og:title" content="AI Safety Summit Fringe" />
       <meta property="og:description" content="UK AI Summit Fringe." />
       <meta property="og:image" content="/social-banner.png" />
 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://aifringe.uk/" />
-      <meta property="twitter:title" content="AI Fringe" />
-      <meta property="twitter:description" content="UK AI Summit Fringe." />
+      <meta property="twitter:title" content="AI Safety Summit Fringe" />
+      <meta property="twitter:description" content="AI Safety Summit Fringe" />
       <meta property="twitter:image" content="/social-banner.png" />
 
       <link
@@ -141,15 +141,15 @@ export default async function Home() {
         <div className="hidden max-w-6xl grid-cols-12 px-4 pt-0 mx-auto mt-0 text-left sm:grid sm:mt-20 sm:pt-0">
           <main className="col-span-full">
             <h3 className="flex flex-col mb-6 text-off_green-500 sm:text-2xl sm:flex-row sm:mb-0">
-              <span className="mr-2 text-off_green">Theme</span>
-              <span className="font-medium">AI Progress & Safety</span>
+              <span className="font-medium">1 - 5 November</span>&nbsp;
+              <span className="mr-2 text-off_green">2023</span>
             </h3>
             <h2 className="hidden mt-10 text-5xl font-medium text-left sm:block sm:text-9xl">
               <span className="inline">
-                Fringe: <span className="text-rose-950">U</span>
-                <span className="text-blue-950">K</span>&nbsp;
-                <span className="text-off_green-500">A</span>
-                <span className="text-off_green-500">I</span> Safety Summit.
+                <span className="text-rose-950">A</span>
+                <span className="text-blue-950">I</span>&nbsp;
+                <span className="text-off_green-500">Safety Summit</span>&nbsp;
+                <span className="text-off_green-500">Fringe</span>
               </span>
             </h2>
           </main>
@@ -202,6 +202,7 @@ export default async function Home() {
         return (
           <a
             key={event.uid}
+            // TODO the URL for an external event is to the org, not event
             href={event.url}
             target="_blank"
             className="block w-full py-6 px-4 sm:mt-10 hover:bg-off_green text-off_green-500 hover:text-white sm:py-8"
@@ -255,20 +256,15 @@ export default async function Home() {
 
             <article className="col-span-6 mt-6 space-y-6 text-sm sm:p-0 sm:mt-0 sm:text-base">
               <p>
-                AI Fringe is organised by{" "}
-                <a href="https://futurelondon.org" target="_blank">
+                The AI Safety Summit Fringe is organised by{" "}
+                <a href="https://futurelondon.org" target="_blank" className="underline">
                   Future London
                 </a>{" "}
                 and{" "}
-                <a href="https://ailondon.org" target="_blank">
+                <a href="https://ailondon.org" target="_blank" className="underline">
                   AI London
                 </a>{" "}
-                to bring together the global AI community to discuss the future
-                of AI.
-              </p>
-              <p>
-                We believe AI going to be a powerful force - let&apos;s make
-                sure it&apos;s a force for good.
+                We&apos;re running events to coincide with, but are not affiliated with the <a href="https://www.gov.uk/government/publications/ai-safety-summit-introduction" className="underline">UK&apos;s AI Safety Summit</a>.
               </p>
             </article>
           </div>
