@@ -146,10 +146,9 @@ export default async function Home() {
             </h3>
             <h2 className="hidden mt-10 text-5xl font-medium text-left sm:block sm:text-9xl">
               <span className="inline">
-                <span className="text-rose-950">A</span>
-                <span className="text-blue-950">I</span>&nbsp;
-                <span className="text-off_green-500">Safety Summit</span>&nbsp;
-                <span className="text-off_green-500">Fringe</span>
+                <span className="text-off_green-500">AI</span>&nbsp;
+                <span>Safety Summit</span>&nbsp;
+                <span className="">Fringe.</span>
               </span>
             </h2>
           </main>
@@ -257,14 +256,30 @@ export default async function Home() {
             <article className="col-span-6 mt-6 space-y-6 text-sm sm:p-0 sm:mt-0 sm:text-base">
               <p>
                 The AI Safety Summit Fringe is organised by{" "}
-                <a href="https://futurelondon.org" target="_blank" className="underline">
+                <a
+                  href="https://futurelondon.org"
+                  target="_blank"
+                  className="underline"
+                >
                   Future London
                 </a>{" "}
                 and{" "}
-                <a href="https://ailondon.org" target="_blank" className="underline">
+                <a
+                  href="https://ailondon.org"
+                  target="_blank"
+                  className="underline"
+                >
                   AI London
                 </a>{" "}
-                We&apos;re running events to coincide with, but are not affiliated with the <a href="https://www.gov.uk/government/publications/ai-safety-summit-introduction" className="underline">UK&apos;s AI Safety Summit</a>.
+                We&apos;re running events to coincide with, but are not
+                affiliated with the{" "}
+                <a
+                  href="https://www.gov.uk/government/publications/ai-safety-summit-introduction"
+                  className="underline"
+                >
+                  UK&apos;s AI Safety Summit
+                </a>
+                .
               </p>
             </article>
           </div>
