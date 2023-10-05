@@ -37,8 +37,6 @@ async function getData() {
 export default async function Home() {
   const { events } = await getData();
 
-  console.log(events);
-
   return (
     <main>
       <title>AI Fringe</title>
