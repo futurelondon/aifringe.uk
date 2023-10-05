@@ -44,9 +44,9 @@ export default async function Home() {
       <meta name="description" content="AI Safety Summit Fringe." />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://aifringe.uk/" />
+      <meta property="og:url" content="https://aiFringeuk/" />
       <meta property="og:title" content="AI Safety Summit Fringe" />
-      <meta property="og:description" content="UK AI Summit Fringe." />
+      <meta property="og:description" content="UK AI Summit Fringe" />
       <meta property="og:image" content="/social-banner.png" />
 
       <meta property="twitter:card" content="summary_large_image" />
@@ -234,23 +234,19 @@ export default async function Home() {
         );
       })}
 
-      <div className="relative w-full py-20 mt-10 overflow-hidden h-60 text-white">
-        <div
-          className="absolute inset-0 z-0 transform bg-off_green -rotate-3 h-96"
-          style={{ width: "110%" }}
-        ></div>
+      <div className="relative w-full py-20 mt-10 overflow-hidden h-60 text-white bg-off_green">
+        
         <div className="absolute top-0 w-full py-10 sm:py-20">
-          <div className="w-full max-w-6xl grid-cols-12 mx-auto sm:grid px-4">
+          <div className="w-full max-w-6xl grid-cols-12 mx-auto px-4">
             <div className="col-span-2">
-              <h6
+              <h2
                 id="about"
-                className="relative mx-auto mb-4 font-medium uppercase w-fit sm:w-full sm:mx-0 sm:mb-0"
+                className="relative mx-auto mb-4 font-medium w-fit sm:w-full sm:mx-0 sm:mb-0"
               >
-                <span className="relative z-10 px-2 py-1 font-medium sm:p-0 text-off_green sm:text-white">
+                <span className="relative px-2 py-1 sm:p-0 sm:text-white sm:text-2xl">
                   About
                 </span>
-                <span className="absolute inset-0 z-0 transform bg-white sm:hidden rotate-6"></span>
-              </h6>
+              </h2>
             </div>
 
             <article className="col-span-6 mt-6 space-y-6 text-sm sm:p-0 sm:mt-0 sm:text-base">
